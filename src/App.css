@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html{
+  background: #10100c; 
+}
+.movie-page {
+  position: relative;
+}
+
+
+
+.navbar {
+  transition: background-color 0.3s ease; 
+  z-index: 1;
+}
+
+.navbar.opaque {
+  background-color: #10100c;
+  /* position: fixed; */
+}
+
+img,.film-background{
+  width: 100%;
+  height: 80vh;
+}
+
+input:focus {
+  outline: none; /* Remove default focus outline */
+  border: none;  /* Remove default border */
+  /* Add any additional styling as needed */
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+
+.transition-background {
+  transition: background-image 1.5s ease-in-out;
+}
+
+.logo{
+ font-family: "Brush Script MT";
+}
+
+.title{
+  position: relative;
+}
+.title::after{
+  position: absolute;
+  content: "";
+  width: 80%;
+  padding: 2px;
+  background-color: #b9004e;
+  height: 4px;
+  bottom: -8px;
+  left: 10%; 
+  right: 10%; 
+}
