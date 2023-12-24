@@ -31,7 +31,7 @@ const HomeSwiper = () => {
         if (movieData && movieData.length > 0) {
             const interval = setInterval(() => {
                 setBackgroundIndex((prevIndex) => (prevIndex + 1) % movieData.length);
-            }, 3000);
+            }, 4000);
 
             return () => clearInterval(interval);
         }
