@@ -8,7 +8,7 @@ export default function Navbar() {
 
     const [size, setSize] = useState(false);
     const pathname = "/";
-    
+
     const closeModal = () => {
         setIsModalOpen(false);
     };
@@ -17,17 +17,17 @@ export default function Navbar() {
         setIsModalOpen(true);
     };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const triggerElementPosition = 0.8 * window.innerHeight;
-      const scrollPosition = window.scrollY;
-      setNavbarOpaque(scrollPosition > triggerElementPosition);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    useEffect(() => {
+        const handleScroll = () => {
+            const triggerElementPosition = 0.8 * window.innerHeight;
+            const scrollPosition = window.scrollY;
+            setNavbarOpaque(scrollPosition > triggerElementPosition);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     useEffect(() => {
 
         const handleResize = () => {
@@ -62,13 +62,13 @@ export default function Navbar() {
     }
     return (
         <nav className={`sm:fixed  w-full sm:top-0 sm:left-0 z-10 navbar pt-1 sm:bg-transparent bg-navBg ${navbarOpaque ? 'opaque' : ''}`}>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Jomhuria&family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
-            
+            <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Jomhuria&family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
+
             <div className="max-w-screen-xl flex flex-wrap justify-between  items-center  mx-auto ">
                 <a href="/" className={`block text-center logo  no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5 italic font-extrabold ${pathname === '/' ? 'active' : ''}`}><span className="text-white text-3xl">Cine</span><span className="text-voilet text-4xl">M</span><span className="text-white text-3xl">ax</span></a>
 
                 <div className="flex justify-between items-center">
-                    <img onClick={openModal}  alt="search" src={s} className="w-5 h-5 cursor-pointer mr-1 sm:hidden block"></img>
+                    <img onClick={openModal} alt="search" src={s} className="w-5 h-5 cursor-pointer mr-1 sm:hidden block"></img>
                     <button
                         type="button"
                         className="inline-flex items-center p-2 w-9 h-9 justify-center text-sm text-white rounded-lg md:hidden hover:bg-voilet"

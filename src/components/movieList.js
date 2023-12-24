@@ -34,10 +34,10 @@ export default function MovieList({ urlM, title }) {
                 <h2 className="text-white text-3xl title">{title}</h2>
                 <p className="text-white">View all</p>
             </div>
-            <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto'}}>
+            <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'hidden' }}>
                 {movies && movies.length > 0 ? (
-                    movies.map((movie) => (
-                        <img alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                    movies.map((movie,index) => (
+                        <img key={index} alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
                     ))
                 ) : (
                     <p>loading...</p>

@@ -33,11 +33,11 @@ const HomeSwiper = () => {
             const imgs = movieData.map((movie) => {
                 const imgP = new Image();
                 imgP.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
-                imgP.onload = () => console.log(`Poster image preloaded: ${imgP.src}`);
+                imgP.onload = () => null;
 
                 const imgB = new Image();
                 imgB.src = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
-                imgB.onload = () => console.log(`Backdrop image preloaded: ${imgB.src}`);
+                imgB.onload = () => null;
 
                 return { imgP, imgB };
             });

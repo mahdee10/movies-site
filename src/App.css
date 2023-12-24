@@ -43,7 +43,7 @@ input:focus {
 
 
 .transition-animation {
-  transition: background 3s ease-in-out;
+  transition: background 2s ease-in-out;
 }
 
 .logo{
@@ -63,4 +63,13 @@ input:focus {
   bottom: -8px;
   left: 10%; 
   right: 10%; 
+}
+
+.genre-item {
+  transition: background-color 0.3s, transform 0.3s; /* Add smooth transitions for background color and size changes */
+}
+
+.genre-item:hover {
+  background-color: #b9004e; /* Change background color on hover */
+  transform: scale(1.08); /* Increase size on hover */
 }
