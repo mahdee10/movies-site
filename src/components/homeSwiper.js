@@ -54,17 +54,22 @@ const HomeSwiper = () => {
     }, []);
 
     return (
-        <div className={`w-[${size}px] transition-background flex justify-end sm:items-end z-0 mb-10`} style={{
-            height: "87vh",
-            backgroundImage: size<= 768 ? (movieData && movieData.length > 0
-                ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
-                : 'none') : (movieData && movieData.length > 0
-                ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
-                : 'none'),
-            backgroundSize: 'cover',
+        // <div className={`w-[${size}px] transition-background flex justify-end sm:items-end z-0 mb-10`} style={{
+        //     height: "87vh",
+        //     backgroundImage: size<= 768 ? (movieData && movieData.length > 0
+        //         ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
+        //         : 'none') : (movieData && movieData.length > 0
+        //         ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
+        //         : 'none'),
+        //     backgroundSize: 'cover',
 
-        }}>
-        </div>
+        // }}>
+        // </div>
+        <img alt='swipeMovie' style={{height:"87vh"}} className={`w-[${size}px] transition-background flex justify-end sm:items-end z-0 mb-10`}  src={size<= 768 ? (movieData && movieData.length > 0
+                    ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
+                    : 'none') : (movieData && movieData.length > 0
+                    ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
+                    : 'none')}></img>
     );
 };
 
