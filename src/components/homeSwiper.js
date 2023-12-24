@@ -32,7 +32,7 @@ const HomeSwiper = () => {
         if (movieData && movieData.length > 0) {
         preloadImages();
         }
-    },[movieData])
+    })
 
     useEffect(() => {
         if (movieData && movieData.length > 0) {
