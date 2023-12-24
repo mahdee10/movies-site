@@ -25,7 +25,7 @@ export default function MovieList({ urlM, title }) {
         };
 
         fetchData();
-    }, []);
+    }, [urlM]);
 
 
     return (
@@ -37,7 +37,7 @@ export default function MovieList({ urlM, title }) {
             <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'hidden' }}>
                 {movies && movies.length > 0 ? (
                     movies.map((movie) => (
-                        <img loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                        <img alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
                     ))
                 ) : (
                     <p>loading...</p>

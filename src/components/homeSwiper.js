@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 const HomeSwiper = () => {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [movieData, setMovieData] = useState(null);
