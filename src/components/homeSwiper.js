@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 const HomeSwiper = () => {
     const [backgroundIndex, setBackgroundIndex] = useState(0);
     const [movieData, setMovieData] = useState(null);
@@ -28,21 +28,37 @@ const HomeSwiper = () => {
     }, []);
     
 
-    useEffect(()=>{
+    const preloadImages = useCallback(() => {
         if (movieData && movieData.length > 0) {
-        preloadImages();
+            const imgs = movieData.map((movie) => {
+                const imgP = new Image();
+                imgP.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+                imgP.onload = () => console.log(`Poster image preloaded: ${imgP.src}`);
+
+                const imgB = new Image();
+                imgB.src = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
+                imgB.onload = () => console.log(`Backdrop image preloaded: ${imgB.src}`);
+
+                return { imgP, imgB };
+            });
+
+            setPreloadedImages(imgs);
         }
-    })
+    }, [movieData]);
+
+    useEffect(() => {
+        preloadImages(); // Call the function
+    }, [preloadImages]);
+    
 
     useEffect(() => {
         if (movieData && movieData.length > 0) {
-
             const interval = setInterval(() => {
-                
                 setBackgroundIndex((prevIndex) =>
                     prevIndex === movieData.length - 1 ? 0 : prevIndex + 1
                 );
             }, 4000);
+
             return () => clearInterval(interval);
         }
     }, [backgroundIndex, movieData]);
@@ -61,21 +77,7 @@ const HomeSwiper = () => {
         };
     }, []);
 
-    function preloadImages() {
-        const imgs = movieData.map((movie) => {
-            const imgP = new Image();
-            imgP.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
-            imgP.onload = () => console.log(`Poster image preloaded: ${imgP.src}`);
-    
-            const imgB = new Image();
-            imgB.src = `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`;
-            imgB.onload = () => console.log(`Backdrop image preloaded: ${imgB.src}`);
-    
-            return { imgP, imgB };
-        });
-    
-        setPreloadedImages(imgs);
-    }
+   
     
 
     return (
