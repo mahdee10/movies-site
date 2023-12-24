@@ -18,7 +18,6 @@ const HomeSwiper = () => {
                 const response = await fetch(url, options);
                 const data = await response.json();
                 setMovieData(data.results);
-                
             } catch (error) {
                 console.error('Error:', error);
             }
@@ -29,19 +28,20 @@ const HomeSwiper = () => {
 
     useEffect(() => {
         if (movieData && movieData.length > 0) {
-            const interval = setInterval(() => {
-                setBackgroundIndex((prevIndex) => (prevIndex + 1) % movieData.length);
-            }, 4000);
 
+            const interval = setInterval(() => {
+                
+                setBackgroundIndex((prevIndex) =>
+                    prevIndex === movieData.length - 1 ? 0 : prevIndex + 1
+                );
+            }, 4000);
             return () => clearInterval(interval);
         }
-    }, [movieData]);
-
-    
+    }, [backgroundIndex, movieData]);
 
     useEffect(() => {
         const handleResize = () => {
-            setSize(window.innerWidth );
+            setSize(window.innerWidth);
         };
 
         handleResize();
@@ -54,26 +54,22 @@ const HomeSwiper = () => {
     }, []);
 
     return (
-        // <div className={`w-[${size}px] transition-background flex justify-end sm:items-end z-0 mb-10`} style={{
-        //     height: "87vh",
-        //     backgroundImage: size<= 768 ? (movieData && movieData.length > 0
-        //         ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
-        //         : 'none') : (movieData && movieData.length > 0
-        //         ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
-        //         : 'none'),
-        //     backgroundSize: 'cover',
-
-        // }}>
-        // </div>
-        <img alt='swipeMovie' style={{height:"87vh"}} className={`w-[${size}px] transition-background flex justify-end sm:items-end z-0 mb-10`}  src={size<= 768 ? (movieData && movieData.length > 0
-                    ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
-                    : 'none') : (movieData && movieData.length > 0
-                    ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
-                    : 'none')}></img>
+        <div
+            className={`w-[${size}px] flex justify-end sm:items-end z-0 mb-10 transition-animation`}
+            style={{
+                height: "87vh",
+                backgroundSize: size <= 768 ? "100% 100%" : "cover",
+                backgroundRepeat:"no-repeat",
+                backgroundImage: size <= 768
+                    ? movieData && movieData.length > 0
+                        ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].poster_path})`
+                        : 'none'
+                    : movieData && movieData.length > 0
+                        ? `url(https://image.tmdb.org/t/p/original/${movieData[backgroundIndex].backdrop_path})`
+                        : 'none'
+            }}
+        />
     );
 };
 
-
 export default HomeSwiper;
-
-

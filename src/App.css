@@ -42,8 +42,8 @@ input:focus {
 
 
 
-.transition-background {
-  transition: background-image 2s ease-in-out;
+.transition-animation {
+  transition: background 2s ease-in-out;
 }
 
 .logo{
