@@ -73,3 +73,46 @@ input:focus {
   background-color: #b9004e; /* Change background color on hover */
   transform: scale(1.08); /* Increase size on hover */
 }
+
+
+@keyframes moveSpotlight {
+  0% {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    top: 0;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+  75% {
+    top: 100%;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.animated-div {
+  position: relative;
+}
+
+.spotlight {
+  width: 5px;
+  height: 5px;
+  background-color: yellow; /* Change the color as needed */
+  border-radius: 50%;
+  position: absolute;
+  animation: moveSpotlight 1.3s infinite linear;
+  backdrop-filter: blur(10px);
+}
