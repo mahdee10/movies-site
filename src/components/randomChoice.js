@@ -114,7 +114,7 @@ export default function Random() {
                         // }
                         key={box.title}
                         id={`box-${index}`}
-                        className="animated-div box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[70px] text-center"
+                        className="animated-div box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[79px] text-center"
                     >
                         {selectedGenreMovies.length > 0 && (
                                 <img
