@@ -48,7 +48,7 @@ export default function Random() {
             tl.to(
                 selectedBox,
                 {
-                    scale: 2,
+                    scale: 1.7,
                     duration: 1,
                 },
                 1.5

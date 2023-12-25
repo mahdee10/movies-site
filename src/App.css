@@ -124,7 +124,7 @@ input:focus {
   }
   50% {
       border-color: orange;
-      scale: 1;
+      scale: 1.1;
   }
   100% {
       border-color: lightblue;
@@ -132,5 +132,5 @@ input:focus {
 }
 
 .animated-border {
-  animation: lightAndTurnOff 2.3s infinite;
+  animation: lightAndTurnOff 1.5s infinite;
 }
