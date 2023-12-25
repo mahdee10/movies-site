@@ -4,22 +4,23 @@ import { gsap } from 'gsap';
 export default function Random() {
     const [flex, setFlex] = useState(false);
     const [selectedGenreMovies, setSelectedGenreMovies] = useState([]);
-
+    const [loading, setLoading] = useState(false);
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
 
     const boxes = useMemo(
         () => [
-          { title: 'Horror', id: "27" },
-          { title: 'Romance', id: "10749" },
-          { title: 'Comedy', id: "35" },
-          { title: 'Action', id: "28" },
-          { title: 'Drama', id: "18" },
+            { title: 'Horror', id: "27" },
+            { title: 'Romance', id: "10749" },
+            { title: 'Comedy', id: "35" },
+            { title: 'Action', id: "28" },
+            { title: 'Drama', id: "18" },
         ],
         []
-      );
+    );
 
     useEffect(() => {
         const handleClick = async (index) => {
+            setLoading(true)
             // Get the selected box
             const selectedBox = document.getElementById(`box-${index}`);
 
@@ -72,10 +73,12 @@ export default function Random() {
                                 const data = await response.json();
                                 const movies = data.results;
                                 setSelectedGenreMovies(movies);
+                                setLoading(false)
+
                             } catch (error) {
                                 console.error('Error fetching movies by genre:', error.message);
                             }
-                        }, 3000);
+                        }, 4000);
                     },
                 },
                 0.5
@@ -104,34 +107,34 @@ export default function Random() {
             <div className={`flex flex-wrap items-center min-h-[220px] sm:w-1/2 sm:pt-4 pt-2 ${flex ? 'justify-center' : 'justify-between'}`}>
                 {boxes.map((box, index) => (
                     <div
-                        // style={{
-                        //     backgroundImage: selectedGenreMovies.length > 0
-                        //         ? `url(${`https://image.tmdb.org/t/p/w500/${selectedGenreMovies[2].poster_path}`})`
-                        //         : 'none',
-                        //     backgroundSize: '100% 100%',
-                        //     backgroundRepeat: 'no-repeat',
-                        // }
-                        // }
+                        style={{
+                            backgroundImage: selectedGenreMovies.length > 0
+                                ? `url(${`https://image.tmdb.org/t/p/w500/${selectedGenreMovies[2].poster_path}`})`
+                                : 'none',
+                            backgroundSize: '100% 100%',
+                            backgroundRepeat: 'no-repeat',
+                        }
+                        }
                         key={box.title}
                         id={`box-${index}`}
-                        className="animated-div box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[79px] text-center"
+                        className={`${selectedGenreMovies.length>0 ? "animated-border" : ""} animated-div transition-animation box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[77px] text-center`}
                     >
-                        {selectedGenreMovies.length > 0 && (
+                        {/* {selectedGenreMovies.length > 0 && (
                                 <img
                                 className='w-full h-full z-10'
                                     src={`https://image.tmdb.org/t/p/w500/${selectedGenreMovies[0].poster_path}`}
                                     alt={selectedGenreMovies[0].title}
                                 />
-                        )}
+                        )} */}
                         {selectedGenreMovies.length === 0 && (
                             <div>
                                 {box.title}
-                                
+
                             </div>
-                            
+
                         )}
-                        <div className="spotlight"></div>
-                        
+                        <div className={`${loading ? "spotlight" : ""}`}></div>
+
                     </div>
                 ))}
             </div>

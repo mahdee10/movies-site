@@ -108,11 +108,29 @@ input:focus {
 }
 
 .spotlight {
-  width: 5px;
-  height: 5px;
-  background-color: yellow; /* Change the color as needed */
+  width: 10px;
+  height: 10px;
+  background-color: white; /* Change the color as needed */
+  box-shadow: yellow 1px 1px 20px;
   border-radius: 50%;
   position: absolute;
   animation: moveSpotlight 1.3s infinite linear;
   backdrop-filter: blur(10px);
+}
+
+@keyframes lightAndTurnOff {
+  0% {
+      border-color: lightblue;
+  }
+  50% {
+      border-color: orange;
+      scale: 1;
+  }
+  100% {
+      border-color: lightblue;
+  }
+}
+
+.animated-border {
+  animation: lightAndTurnOff 2.3s infinite;
 }
