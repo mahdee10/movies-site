@@ -134,3 +134,17 @@ input:focus {
 .animated-border {
   animation: lightAndTurnOff 1.5s infinite;
 }
+
+
+
+/* .random {
+
+  transition: background 0.3s ease; 
+
+  &:hover {
+      background-image: none; 
+  }
+} */
+.box .hovered {
+  transition: background-image 3s ease-in-out;
+}
