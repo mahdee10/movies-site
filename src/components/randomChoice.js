@@ -97,7 +97,7 @@ export default function Random() {
                         // }
                         // }
                         style={{
-                            backgroundImage:hoveredBox === index? `url(${`${box.background}`})`:null,
+                            backgroundImage:hoveredBox === index && !loading ? `url(${`${box.background}`})`:null,
                             backgroundSize: "cover",
                             backgroundRepeat: 'no-repeat',
                         }

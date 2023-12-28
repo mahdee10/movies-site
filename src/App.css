@@ -148,3 +148,19 @@ input:focus {
 .box .hovered {
   transition: background-image 3s ease-in-out;
 }
+
+.notInwatchlist{
+  top: -0.5%;
+  right: -4%;
+  opacity: 0.5;
+}
+.notInwatchlist:hover{
+  opacity: 1;
+}
+
+.inWatchList{
+  top: -0.5%;
+  right: -4%;
+  opacity: 1;
+}
+

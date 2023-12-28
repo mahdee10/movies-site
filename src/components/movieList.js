@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Poster from "./moviePoster";
 
 export default function MovieList({ urlM, title }) {
     const [movies, setMovies] = useState(null);
@@ -37,7 +38,8 @@ export default function MovieList({ urlM, title }) {
             <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}>
                 {movies && movies.length > 0 ? (
                     movies.map((movie,index) => (
-                        <img key={index} alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                        // <img key={index} alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                        <Poster movie={movie} key={index} classContent={"w-40 h-60 shrink-0 mr-3"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
                     ))
                 ) : (
                     <p>loading...</p>
