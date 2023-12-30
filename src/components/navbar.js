@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import s from "../imgs/ser.png"
 import SearchModal from "./searchModel";
+import { Link } from "react-router-dom";
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [navbarOpaque, setNavbarOpaque] = useState(false);
@@ -65,7 +66,7 @@ export default function Navbar() {
             <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Jomhuria&family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
 
             <div className="max-w-screen-xl flex flex-wrap justify-between  items-center  mx-auto ">
-                <a href="/" className={`block text-center logo  no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5 italic font-extrabold ${pathname === '/' ? 'active' : ''}`}><span className="text-white text-3xl">Cine</span><span className="text-voilet text-4xl">M</span><span className="text-white text-3xl">ax</span></a>
+                <Link to="/" className={`block text-center logo  no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5 italic font-extrabold ${pathname === '/' ? 'active' : ''}`}><span className="text-white text-3xl">Cine</span><span className="text-voilet text-4xl">M</span><span className="text-white text-3xl">ax</span></Link>
 
                 <div className="flex justify-between items-center">
                     <img onClick={openModal} alt="search" src={s} className="w-5 h-5 cursor-pointer mr-1 sm:hidden block"></img>
@@ -93,12 +94,12 @@ export default function Navbar() {
 
                 <div className={`w-full md:w-auto ${isMenuOpen ? "block" : "hidden"}`} id="navbar-default">
                     <div className="sm:static absolute w-full  z-50 nav flex  flex-col md:flex-row  md:mt-0 md:border-0">
-                        <a href="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</a>
-                        <a href="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</a>
-                        <a href="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</a>
+                        <Link to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                        <Link to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</Link>
+                        <Link to="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</Link>
                         <div onClick={() => { openModal(); hideMenu(); }} className={`sm:hidden sm:bg-transparent bg-navBg block text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Search</div>
-                        <a href="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</a>
-                        <a href="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</a>
+                        <Link to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</Link>
+                        <Link to="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</Link>
                     </div>
                 </div>
 
