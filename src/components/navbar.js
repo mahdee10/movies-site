@@ -61,12 +61,18 @@ export default function Navbar() {
         }
 
     }
+
+    const closeMenu = () => {
+        if (window.innerWidth < 768) {
+          setIsMenuOpen(false);
+        }
+      };
     return (
         <nav className={`sm:fixed  w-full sm:top-0 sm:left-0 z-10 navbar pt-1 sm:bg-transparent bg-navBg ${navbarOpaque ? 'opaque' : ''}`}>
             <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Jomhuria&family=Open+Sans:wght@300&display=swap" rel="stylesheet"></link>
 
             <div className="max-w-screen-xl flex flex-wrap justify-between  items-center  mx-auto ">
-                <Link to="/" className={`block text-center logo  no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5 italic font-extrabold ${pathname === '/' ? 'active' : ''}`}><span className="text-white text-3xl">Cine</span><span className="text-voilet text-4xl">M</span><span className="text-white text-3xl">ax</span></Link>
+                <Link onClick={closeMenu} to="/" className={`block text-center logo  no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5 italic font-extrabold ${pathname === '/' ? 'active' : ''}`}><span className="text-white text-3xl">Cine</span><span className="text-voilet text-4xl">M</span><span className="text-white text-3xl">ax</span></Link>
 
                 <div className="flex justify-between items-center">
                     <img onClick={openModal} alt="search" src={s} className="w-5 h-5 cursor-pointer mr-1 sm:hidden block"></img>
@@ -94,12 +100,12 @@ export default function Navbar() {
 
                 <div className={`w-full md:w-auto ${isMenuOpen ? "block" : "hidden"}`} id="navbar-default">
                     <div className="sm:static absolute w-full  z-50 nav flex  flex-col md:flex-row  md:mt-0 md:border-0">
-                        <Link to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</Link>
-                        <Link to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</Link>
-                        <Link to="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</Link>
-                        <div onClick={() => { openModal(); hideMenu(); }} className={`sm:hidden sm:bg-transparent bg-navBg block text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Search</div>
-                        <Link to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</Link>
-                        <Link to="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</Link>
+                        <Link onClick={closeMenu} to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</Link>
+                        <Link onClick={closeMenu} to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</Link>
+                        <Link onClick={closeMenu} to="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</Link>
+                        <div  onClick={() => { openModal(); hideMenu(); closeMenu(); }} className={`sm:hidden sm:bg-transparent bg-navBg block text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Search</div>
+                        <Link onClick={closeMenu} to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</Link>
+                        <Link onClick={closeMenu} to="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</Link>
                     </div>
                 </div>
 
