@@ -4,8 +4,8 @@ export default function MoviesCollection({movies,title}){
     return(
         movies && movies.length>0? (
             
-            <div className="flex flex-col sm:items-center w-full sm:mt-10 mt-5 w-full sm:p-0 p-3">
-            <h2 className="text-white text-3xl title text-center pt-10 sm:mt-20">{title}</h2>
+            <div className="flex flex-col items-center w-full sm:mt-10 mt-5 w-full sm:p-0 p-3">
+            <h2 className="text-white text-3xl w-fit title text-center pt-10 sm:mt-20">{title}</h2>
 
                 <div className="flex flex-wrap sm:justify-center sm:mt-10 mt-5 justify-between w-full">
                     {
