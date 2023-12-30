@@ -155,7 +155,9 @@ input:focus {
   opacity: 0.5;
   user-select: none;
 }
-
+.notInwatchlist:hover{
+  opacity: 1;
+}
 
 .inWatchList{
   top: -0.5%;
@@ -164,8 +166,3 @@ input:focus {
   user-select: none;
 }
 
-@media (min-width:600px) {
-  .notInwatchlist:hover{
-    opacity: 1;
-  }
-}

@@ -93,11 +93,11 @@ export default function Navbar() {
 
                 <div className={`w-full md:w-auto ${isMenuOpen ? "block" : "hidden"}`} id="navbar-default">
                     <div className="sm:static absolute w-full  z-50 nav flex  flex-col md:flex-row  md:mt-0 md:border-0">
-                        <a href="./news" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</a>
+                        <a href="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</a>
                         <a href="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</a>
                         <a href="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</a>
                         <div onClick={() => { openModal(); hideMenu(); }} className={`sm:hidden sm:bg-transparent bg-navBg block text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Search</div>
-                        <a href="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</a>
+                        <a href="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</a>
                         <a href="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</a>
                     </div>
                 </div>
