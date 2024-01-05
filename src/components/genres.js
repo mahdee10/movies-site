@@ -29,7 +29,7 @@ export default function Genres() {
                      genres.map((genre) => (
                         genre.name !== "Western" && genre.name !== "Science Fiction" && genre.name !== "TV Movie" && genre.name !== "Documentary" && (
                         <div
-                         key={genre.id} className="genre-item bg-[#131519] flex justify-center items-center  text-white sm:text-sm text-xs mt-2 sm:w-28 sm:h-28 w-16 h-16 rounded-xl">
+                         key={genre.id} className="genre-item cursor-pointer bg-[#131519] flex justify-center items-center  text-white sm:text-sm text-xs mt-2 sm:w-28 sm:h-28 w-16 h-16 rounded-xl">
                           {genre.name}
                         </div>
                         )
