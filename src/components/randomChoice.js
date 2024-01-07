@@ -5,6 +5,7 @@ import action from "../imgs/action.jpg"
 import romance from "../imgs/romance.jpg"
 import drama from "../imgs/drama.jpg"
 import comedy from "../imgs/comedy.jpg"
+import { useNavigate } from 'react-router-dom';
 export default function Random() {
     const [flex, setFlex] = useState(false);
     const [selectedGenreMovies, setSelectedGenreMovies] = useState([]);
@@ -13,6 +14,7 @@ export default function Random() {
     const [hoveredBox, setHoveredBox] = useState(null);
     const [animationTriggered, setAnimationTriggered] = useState(false);
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
+    const navigate = useNavigate()
 
     const boxes = useMemo(
         () => [
@@ -24,6 +26,12 @@ export default function Random() {
         ],
         []
     );
+
+    function navigation() {
+        if (randomMovie) {
+            navigate(`/movie/${selectedGenreMovies[randomMovie].id}`)
+        }
+    }
 
     const handleClick = async (index) => {
         if (animationTriggered) {
@@ -87,24 +95,17 @@ export default function Random() {
                     <div
                         onMouseEnter={() => setHoveredBox(index)}
                         onMouseLeave={() => setHoveredBox(null)}
-                        onClick={() => handleClick(index)}
-                        // style={{
-                        //     backgroundImage: selectedGenreMovies.length > 0
-                        //         ? `url(${`https://image.tmdb.org/t/p/w500/${selectedGenreMovies[randomMovie].poster_path}`})`
-                        //         : 'none',
-                        //     backgroundSize: '100% 100%',
-                        //     backgroundRepeat: 'no-repeat',
-                        // }
-                        // }
+                        onClick={() => { handleClick(index); navigation() }}
+
                         style={{
-                            backgroundImage:hoveredBox === index && !loading ? `url(${`${box.background}`})`:null,
+                            backgroundImage: hoveredBox === index && !loading ? `url(${`${box.background}`})` : null,
                             backgroundSize: "cover",
                             backgroundRepeat: 'no-repeat',
                         }
                         }
                         key={box.title}
                         id={`box-${index}`}
-                        className={`${selectedGenreMovies.length > 0 ? "animated-border" : ""} ${hoveredBox === index ? "hovered" : ""} a animated-div transition-animation box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[77px] text-center `}
+                        className={`${selectedGenreMovies.length > 0 ? "animated-border" : ""} ${hoveredBox === index ? "hovered" : ""} a animated-div transition-animation box border-2 mt-1 flex sm:text-base text-xs  items-center justify-center border-white text-white sm:h-28 sm:w-20 h-[100px] w-[77px] text-center cursor-pointer`}
                     >
                         {selectedGenreMovies.length > 0 && (
                             <img
@@ -126,15 +127,6 @@ export default function Random() {
                 ))}
             </div>
 
-            {/* {selectedGenreMovies.length > 0 && (
-        <div>
-          <h2>Selected Genre Movies</h2>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${selectedGenreMovies[0].poster_path}`}
-            alt={selectedGenreMovies[0].title}
-          />
-        </div>
-      )} */}
         </div>
     );
 }

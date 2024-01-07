@@ -55,12 +55,12 @@ export default function Navbar() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const hideMenu = () => {
-        if (window.innerWidth <= 768) {
-            toggleMenu()
-        }
+    // const hideMenu = () => {
+    //     if (window.innerWidth <= 768) {
+    //         toggleMenu()
+    //     }
 
-    }
+    // }
 
     const closeMenu = () => {
         if (window.innerWidth < 768) {
@@ -103,7 +103,6 @@ export default function Navbar() {
                         <Link onClick={closeMenu} to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</Link>
                         <Link onClick={closeMenu} to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</Link>
                         <Link onClick={closeMenu} to="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</Link>
-                        <div  onClick={() => { openModal(); hideMenu(); closeMenu(); }} className={`sm:hidden sm:bg-transparent bg-navBg block text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Search</div>
                         <Link onClick={closeMenu} to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</Link>
                         <Link onClick={closeMenu} to="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</Link>
                     </div>
