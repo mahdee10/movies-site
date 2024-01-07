@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import MovieBP from "../../components/movieBP";
 import MovieDetails from "../../components/movieDetails";
 import Trailer from "../../components/movieTrailer";
+import Cast from "../../components/cast";
 
 export default function Movie() {
     const [movie, setMovie] = useState()
@@ -45,6 +46,7 @@ export default function Movie() {
                         <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
                         <MovieDetails movie={movie}></MovieDetails>
                         <Trailer movie={movie}></Trailer>
+                        <Cast movie={movie}></Cast>
                     </>
                 ) : (
                     null
