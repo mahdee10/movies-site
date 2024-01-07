@@ -19,7 +19,7 @@ export const WatchLaterProvider = ({ children }) => {
     setWatchLater((prevWatchLater) => {
       localStorage.setItem('watchLater', JSON.stringify(newWatchLater));
       console.log(localStorage.getItem('watchLater'));
-      console.log(newWatchLater); // Use newWatchLater here instead of watchLater
+      console.log(newWatchLater); 
       return newWatchLater;
     });
   };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import MovieBP from "../../components/movieBP";
+import MovieDetails from "../../components/movieDetails";
 
 export default function Movie() {
     const [movie, setMovie] = useState()
@@ -36,11 +37,14 @@ export default function Movie() {
     }, [id, apiKey]);
 
     return (
-        <div className="">
+        <div className="pb-10">
             {
-                movie  ? (
-                    <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
-                ):(
+                movie ? (
+                    <>
+                        <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
+                        <MovieDetails movie={movie}></MovieDetails>
+                    </>
+                ) : (
                     null
                 )
             }

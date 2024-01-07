@@ -166,3 +166,7 @@ input:focus {
   user-select: none;
 }
 
+.watchList{
+  transition: background-color 1s;
+}
+
