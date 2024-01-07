@@ -6,7 +6,7 @@ export default function Trailer({ movie }) {
 
     return (
 
-        <div className=" flex justify-center mt-12">
+        <div className=" flex justify-center sm:pt-32 pt-10 sm:px-20 px-2">
             {getTrailerKey() ? (
                 <iframe
                     className="sm:w-3/4 w-full sm:h-[500px] h-[200px]"
