@@ -6,7 +6,7 @@ export default function Cast({movie}){
                 {
                     movie.credits.cast.map((actor)=>(
                         actor.known_for_department==="Acting" && actor.profile_path ? 
-                        <img key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3 w-[49%] h-[170px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img> 
+                        <img key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3 w-[49%] h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img> 
                         : null
                     ))
                 }
