@@ -9,7 +9,7 @@ export default function Trailer({ movie }) {
         <div className=" flex justify-center mt-12">
             {getTrailerKey() ? (
                 <iframe
-                    className="sm:w-3/4 sm:h-[500px] h-[200px]"
+                    className="sm:w-3/4 w-full sm:h-[500px] h-[200px]"
                     src={`https://www.youtube.com/embed/${getTrailerKey()}`}
                     title="YouTube Video"
                     frameBorder="0"
