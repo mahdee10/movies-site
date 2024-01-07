@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { gsap } from 'gsap';
 import horror from "../imgs/scream.jpg"
 import action from "../imgs/action.jpg"
@@ -13,6 +13,8 @@ export default function Random() {
     const [loading, setLoading] = useState(false);
     const [hoveredBox, setHoveredBox] = useState(null);
     const [animationTriggered, setAnimationTriggered] = useState(false);
+    const [size, setSize] = useState(false);
+
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
     const navigate = useNavigate()
 
@@ -84,7 +86,26 @@ export default function Random() {
         }, 0.5);
     };
 
+    useEffect(() => {
 
+        const handleResize = () => {
+            if (window.innerWidth <= 768) {
+                setSize(true)
+            }
+            else {
+                setSize(false)
+            }
+        };
+
+        handleResize();
+
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <div className="flex-col flex w-full justify-center items-center py-7 sm:my-10 my-5 bg-[#1d0d25] sm:px-0 px-4">
@@ -98,7 +119,7 @@ export default function Random() {
                         onClick={() => { handleClick(index); navigation() }}
 
                         style={{
-                            backgroundImage: hoveredBox === index && !loading ? `url(${`${box.background}`})` : null,
+                            backgroundImage: hoveredBox === index && !loading && !size ? `url(${`${box.background}`})` : null,
                             backgroundSize: "cover",
                             backgroundRepeat: 'no-repeat',
                         }
