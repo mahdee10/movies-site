@@ -4,6 +4,7 @@ import MovieBP from "../../components/movieBP";
 import MovieDetails from "../../components/movieDetails";
 import Trailer from "../../components/movieTrailer";
 import Cast from "../../components/cast";
+import SimilarMovies from "../../components/similarMovies";
 
 export default function Movie() {
     const [movie, setMovie] = useState()
@@ -47,6 +48,7 @@ export default function Movie() {
                         <MovieDetails movie={movie}></MovieDetails>
                         <Trailer movie={movie}></Trailer>
                         <Cast movie={movie}></Cast>
+                        <SimilarMovies id={movie.id}></SimilarMovies>
                     </>
                 ) : (
                     null
