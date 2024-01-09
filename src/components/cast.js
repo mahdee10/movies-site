@@ -34,15 +34,15 @@ export default function Cast({ movie }) {
                 }}
                 breakpoints={{
                     '@0.00': {
-                        slidesPerView: 2.5,
-                        // spaceBetween: 50,
+                        slidesPerView: 2.3,
+                        spaceBetween: 10,
                     },
                     '@0.75': {
                         slidesPerView: 3,
                         spaceBetween: 20,
                     },
                     '@1.00': {
-                        slidesPerView: 4.2,
+                        slidesPerView: 5.2,
                         // spaceBetween: 1,
                     },
                 }}
@@ -54,7 +54,7 @@ export default function Cast({ movie }) {
                             key={actor.id}>
                             {
                                 actor.known_for_department === "Acting" && actor.profile_path ?
-                                    <img key={actor.id} alt="actor" className="mr-2 sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
+                                    <img key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
                                     : null
                             }
                         </SwiperSlide>
