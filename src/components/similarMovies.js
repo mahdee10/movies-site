@@ -34,9 +34,20 @@ export default function SimilarMovies({ id }) {
     if (container) {
       const containerRect = container.getBoundingClientRect();
       const mousePositionX = e.clientX - containerRect.left;
-
-      const direction = mousePositionX > containerRect.width / 2 ? 'right' : 'left';
-      setIntervalId(setInterval(() => scrollMovies(direction), 50));
+  
+      const triggerThreshold = 0.2; // Adjust this value (0.2 means 20% from the right)
+  
+      let direction = '';
+  
+      if (mousePositionX > containerRect.width * (1 - triggerThreshold)) {
+        direction = 'right';
+      } else if (mousePositionX < containerRect.width * triggerThreshold) {
+        direction = 'left';
+      }
+  
+      if (direction) {
+        setIntervalId(setInterval(() => scrollMovies(direction), 50));
+      }
     }
   };
 
@@ -50,6 +61,14 @@ export default function SimilarMovies({ id }) {
       const scrollAmount = direction === 'right' ? 10 : -10;
       container.scrollLeft += scrollAmount;
     }
+  };
+  const handleMovieClick = () => {
+    setIntervalId(null)
+    // Scroll the page vertically to position 0
+    // window.scrollTo({
+    //   top: 0,
+    //   behavior: "smooth" // You can use "auto" instead of "smooth" for an instant jump
+    // });
   };
 
   return (
@@ -66,12 +85,14 @@ export default function SimilarMovies({ id }) {
       >
         {movies && movies.length > 0 ? (
           movies.map((movie, index) => (
+            <div onClick={handleMovieClick}>
             <Poster
               movie={movie}
               key={index}
               classContent={"w-40 h-60 shrink-0 mr-3"}
               source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             ></Poster>
+            </div>
           ))
         ) : (
           <p>loading...</p>

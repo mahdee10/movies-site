@@ -13,6 +13,7 @@ export default function Movie() {
     console.log(id)
 
     useEffect(() => {
+        setMovie(null)
         const fetchData = async () => {
             try {
                 const detailsUrl = `https://api.themoviedb.org/3/movie/${id}?api_key=75a499747ddeaacd5a5ca88536c09337&append_to_response=credits`;
