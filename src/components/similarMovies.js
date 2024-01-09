@@ -54,8 +54,8 @@ export default function SimilarMovies({ id }) {
 
   return (
     <div className="sm:pt-32 pt-10 sm:px-20 px-2">
-      <div className="flex justify-between items-center">
-        <h2 className="text-white text-3xl title">Similar Movies</h2>
+      <div className="flex sm:justify-between justify-ceter items-center">
+        <h2 className="text-white text-3xl title w-fit">Similar Movies</h2>
       </div>
       <div
         id="movieListContainer"
