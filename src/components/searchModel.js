@@ -2,6 +2,7 @@ import s from "../imgs/ser.png"
 import close from "../imgs/close.png"
 import { useEffect, useState } from "react"
 import "../styles/search.css"
+import Poster from "./moviePoster";
 export default function SearchModal({ closeModal }) {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState("a");
@@ -44,7 +45,10 @@ export default function SearchModal({ closeModal }) {
                     {
                         movies.map((movie)=>{
                             return(
-                                <img className="sm:w-[22%] sm:h-52 w-[46%] h-52 mt-5" alt="daf" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
+                           
+                                <Poster closeModal={closeModal} movie={movie} key={movie.id} classContent={"sm:w-[22%] sm:h-52 w-[46%] h-52 mt-5"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
+
+                            
                             )
                         })
                     }

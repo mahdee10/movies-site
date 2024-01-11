@@ -1,5 +1,5 @@
-import { useWatchlaterContext } from "../context/watchLaterContext"
-import watchIcon from "../../src/imgs/fav.png"
+import { useWatchlaterContext } from "../../context/watchLaterContext"
+import watchIcon from "../../imgs/fav.png"
 export default function MovieDetails({ movie }) {
 
     const { removeItemWatchLater, addItemToWatchLater, isInWatchList } = useWatchlaterContext();
@@ -22,8 +22,8 @@ export default function MovieDetails({ movie }) {
                     <p className="sm:text-2xl text-xl text-[#9f9fa7] sm:text-start text-center sm:mt-0 mt-3">{movie.overview}</p>
                 </div>
                 <div className="flex flex-col sm:w-[48%] text-xl sm:items-end sm:pt-0 pt-10 sm:order-2 order-1">
-                    <p className="text-white  sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Release Date:</span>{` ${movie.release_date}`}</p>
-                    <p className="text-white sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Run Time:</span>{` ${hours} h ${minutes} min`}</p>
+                    <p className="text-white  sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Release Year:</span>{` ${movie.release_date.slice(0,4)}`}</p>
+                    <p className="text-white sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Run Time:</span>{` ${hours}h ${minutes}min`}</p>
                     <p className="text-white sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Vote Average:</span>{` ${Math.floor(movie.vote_average)}`}</p>
                     <p className="text-white  sm:w-[50%] sm:mt-0 mt-1"><span className="text-voilet">Genres:</span> {`${
                         movie.genres.map((genre)=>(

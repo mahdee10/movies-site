@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Poster from "./moviePoster";
+import Poster from "../moviePoster";
 
 export default function SimilarMovies({ id }) {
   const [movies, setMovies] = useState(null);
@@ -35,7 +35,7 @@ export default function SimilarMovies({ id }) {
       const containerRect = container.getBoundingClientRect();
       const mousePositionX = e.clientX - containerRect.left;
   
-      const triggerThreshold = 0.2; // Adjust this value (0.2 means 20% from the right)
+      const triggerThreshold = 0.2; 
   
       let direction = '';
   
@@ -62,14 +62,7 @@ export default function SimilarMovies({ id }) {
       container.scrollLeft += scrollAmount;
     }
   };
-  const handleMovieClick = () => {
-    setIntervalId(null)
-    // Scroll the page vertically to position 0
-    // window.scrollTo({
-    //   top: 0,
-    //   behavior: "smooth" // You can use "auto" instead of "smooth" for an instant jump
-    // });
-  };
+
 
   return (
     <div className="sm:pt-32 pt-10 sm:px-20 px-2">
@@ -85,7 +78,7 @@ export default function SimilarMovies({ id }) {
       >
         {movies && movies.length > 0 ? (
           movies.map((movie, index) => (
-            <div onClick={handleMovieClick}>
+            <div>
             <Poster
               movie={movie}
               key={index}

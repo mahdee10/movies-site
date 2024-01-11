@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import MovieBP from "../../components/movieBP";
-import MovieDetails from "../../components/movieDetails";
-import Trailer from "../../components/movieTrailer";
-import Cast from "../../components/cast";
-import SimilarMovies from "../../components/similarMovies";
+import MovieBP from "../../components/movie/movieBP";
+import MovieDetails from "../../components/movie/movieDetails";
+import Trailer from "../../components/movie/movieTrailer";
+import Cast from "../../components/movie/cast";
+import SimilarMovies from "../../components/movie/similarMovies";
 
 export default function Movie() {
     const [movie, setMovie] = useState()
