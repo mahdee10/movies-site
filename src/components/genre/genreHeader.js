@@ -18,7 +18,7 @@ export default function GenreHeader(){
                     genre.name !== "Western" && genre.name !== "Science Fiction" && genre.name !== "TV Movie" && genre.name !== "Documentary" && (
                     <div
                     onClick={()=>{navigation(genre)}}
-                     key={genre.id} className={` cursor-pointer bg-[#131519] flex justify-center items-center  text-white sm:text-xs text-xs mt-2 sm:w-16 sm:h-16 w-16 h-16 rounded-xl ${id == genre.id  ?"bg-voilet":"genre-item"}`}>
+                     key={genre.id} className={` cursor-pointer bg-[#131519] flex justify-center items-center  text-white sm:text-xs text-xs mt-2 sm:w-16 sm:h-16 w-16 h-16 rounded-xl ${parseInt(id, 10) === genre.id  ?"bg-voilet":"genre-item"}`}>
                       {genre.name}
                     </div>
                     )
