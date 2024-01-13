@@ -1,11 +1,10 @@
 import React from 'react';
-import HomeSwiper from '../components/homeSwiper';
-import MovieList from '../components/movieList';
-import Genres from '../components/genres';
-import Random from '../components/randomChoice';
+import HomeSwiper from '../components/home/homeSwiper';
+import MovieList from '../components/home/movieList';
+import Genres from '../components/home/genres';
+import Random from '../components/home/randomChoice';
 
 const Home = () => {
-  console.log("hey")
 
   return (
     <div className="movie-page pb-3">

@@ -27,11 +27,8 @@ export default function Cast({ movie }) {
                 modules={[Navigation]}
                 slidesPerView={1}
                 effect="fade"
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={(swiper) => {
-                    // console.log('slide change', swiper.activeIndex);
-                    // setActiveSlideIndex(swiper.activeIndex);
-                }}
+            
+   
                 breakpoints={{
                     '@0.00': {
                         slidesPerView: 2.3,

@@ -1,8 +1,8 @@
-import s from "../imgs/ser.png"
-import close from "../imgs/close.png"
+import s from "../../imgs/ser.png"
+import close from "../../imgs/close.png"
 import { useEffect, useState } from "react"
-import "../styles/search.css"
-import Poster from "./moviePoster";
+import "../../styles/search.css"
+import Poster from "../shared/moviePoster";
 export default function SearchModal({ closeModal }) {
     const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState("a");
@@ -21,7 +21,7 @@ export default function SearchModal({ closeModal }) {
 
                 const response = await fetch(url, options);
                 const data = await response.json();
-                // console.log(data)
+          
                 setMovies(data.results);
             } catch (error) {
                 console.error('Error:', error);

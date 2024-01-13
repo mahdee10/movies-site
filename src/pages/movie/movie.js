@@ -10,7 +10,7 @@ export default function Movie() {
     const [movie, setMovie] = useState()
     const { id } = useParams()
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
-    console.log(id)
+   
 
     useEffect(() => {
         setMovie(null)
@@ -29,7 +29,7 @@ export default function Movie() {
                     videosResponse.json(),
                 ]);
 
-                console.log(detailsData)
+        
 
                 setMovie({ ...detailsData, videos: videosData.results });
             } catch (error) {

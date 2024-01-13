@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Poster from "../moviePoster";
+import Poster from "../shared/moviePoster";
 
 export default function SimilarMovies({ id }) {
   const [movies, setMovies] = useState(null);
@@ -69,11 +69,12 @@ export default function SimilarMovies({ id }) {
       <div className="flex sm:justify-between justify-center items-center">
         <h2 className="text-white text-3xl title w-fit">Similar Movies</h2>
       </div>
+      <div className="relative">
       <div
         id="movieListContainer"
-        className="flex mt-5"
+        className="flex mt-5 "
         style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}
-        onMouseEnter={handleMouseEnter}
+        onMouseEnter={handleMouseLeave}
         onMouseLeave={handleMouseLeave}
       >
         {movies && movies.length > 0 ? (
@@ -90,6 +91,22 @@ export default function SimilarMovies({ id }) {
         ) : (
           <p>loading...</p>
         )}
+      </div>
+      <div 
+      onMouseEnter={handleMouseEnter} 
+      onMouseLeave={handleMouseLeave} 
+      className="sm:block hidden top-0 absolute left-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
+      </div>
+      {/* <div 
+        onMouseEnter={handleMouseLeave} 
+        onMouseLeave={handleMouseLeave} 
+        className="sm:block hidden top-0 absolute left-[10%] w-[80%] cursor-pointer h-full  z-10">
+        </div> */}
+        <div 
+        onMouseEnter={handleMouseEnter} 
+        onMouseLeave={handleMouseLeave} 
+        className="sm:block hidden top-0 absolute right-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
+        </div>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { gsap } from 'gsap';
-import horror from "../imgs/scream.jpg"
-import action from "../imgs/action.jpg"
-import romance from "../imgs/romance.jpg"
-import drama from "../imgs/drama.jpg"
-import comedy from "../imgs/comedy.jpg"
+import horror from "../../imgs/scream.jpg"
+import action from "../../imgs/action.jpg"
+import romance from "../../imgs/romance.jpg"
+import drama from "../../imgs/drama.jpg"
+import comedy from "../../imgs/comedy.jpg"
 import { useNavigate } from 'react-router-dom';
 export default function Random() {
     const [flex, setFlex] = useState(false);

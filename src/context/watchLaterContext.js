@@ -6,7 +6,7 @@ export const WatchLaterProvider = ({ children }) => {
   const [watchLater, setWatchLater] = useState([]);
 
   useEffect(() => {
-    console.log(localStorage.getItem('watchLater'))
+   
     const storedWatch = localStorage.getItem('watchLater');
     if (storedWatch) {
       const parsedWatch = JSON.parse(storedWatch);
@@ -18,8 +18,7 @@ export const WatchLaterProvider = ({ children }) => {
   const updateAndSaveWatchLater = (newWatchLater) => {
     setWatchLater((prevWatchLater) => {
       localStorage.setItem('watchLater', JSON.stringify(newWatchLater));
-      console.log(localStorage.getItem('watchLater'));
-      console.log(newWatchLater); 
+
       return newWatchLater;
     });
   };

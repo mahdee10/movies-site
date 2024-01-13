@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Poster from "./moviePoster";
+import Poster from "../shared/moviePoster";
 
 export default function MovieList({ urlM, title }) {
     const [movies, setMovies] = useState(null);

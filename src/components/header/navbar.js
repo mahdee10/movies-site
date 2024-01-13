@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import s from "../imgs/ser.png"
+import s from "../../imgs/ser.png"
 import SearchModal from "./searchModel";
 import { Link } from "react-router-dom";
 export default function Navbar() {
@@ -14,7 +14,7 @@ export default function Navbar() {
         setIsModalOpen(false);
     };
     const openModal = () => {
-        console.log("hello")
+
         setIsModalOpen(true);
     };
 
