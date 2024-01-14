@@ -17,21 +17,19 @@ export default function Poster({ classContent, source,movie,closeModal,withAnima
     useEffect(() => {
         if(withAnimation){
         
-        const animation = gsap.from(movieRef.current, {
-            y: 100,            // Start from the original position
-            to: { y: 0 },  // Move down by 100 pixels
-            duration: 3,     // Duration of the animation
-            ease: 'power2.out', 
+            const animation = gsap.from(movieRef.current, {
+                y: 100,
+                duration: 3, 
+                ease: 'power2.out', 
+              });
           
-        });
-    
-        ScrollTrigger.create({
-          trigger: movieRef.current,
-          animation: animation,
-          start: 'top 80%', 
-          end: 'bottom 20%', 
-          toggleActions: 'play none none none',
-        });
+              ScrollTrigger.create({
+                trigger: movieRef.current,
+                animation: animation,
+                start: 'top 80%', 
+                end: 'bottom 20%', 
+                toggleActions: 'play none none none',
+              });
     }
       }, [withAnimation,movie]);
     return (
