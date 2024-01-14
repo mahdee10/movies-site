@@ -97,11 +97,7 @@ export default function SimilarMovies({ id }) {
       onMouseLeave={handleMouseLeave} 
       className="sm:block hidden top-0 absolute left-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
       </div>
-      {/* <div 
-        onMouseEnter={handleMouseLeave} 
-        onMouseLeave={handleMouseLeave} 
-        className="sm:block hidden top-0 absolute left-[10%] w-[80%] cursor-pointer h-full  z-10">
-        </div> */}
+ 
         <div 
         onMouseEnter={handleMouseEnter} 
         onMouseLeave={handleMouseLeave} 

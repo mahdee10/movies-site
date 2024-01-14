@@ -1,4 +1,4 @@
-import MoviesCollection from "../components/collectionMovies"
+import MoviesCollection from "../components/shared/collectionMovies"
 import { useWatchlaterContext } from "../context/watchLaterContext"
 
 export default function WatchList() {
