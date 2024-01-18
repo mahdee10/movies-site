@@ -15,6 +15,7 @@ export const GenreProvider = ({ children }) => {
             const response = await fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`);
             const data = await response.json();
             const genreData = data.genres;
+            console.log(genreData)
    
             setGenres(genreData)
   

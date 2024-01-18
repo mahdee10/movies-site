@@ -8,8 +8,7 @@ export default function GenreHeader(){
     }
     const { genres } = useGenre()
     const { id } = useParams()
-    console.log(id)
-
+   
     return (
         <div className="flex justify-between flex-wrap">
             {

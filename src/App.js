@@ -8,9 +8,11 @@ import WatchList from './pages/watchList';
 import Movie from './pages/movie/movie';
 import Genre from './pages/genre/genre';
 import { GenreProvider } from './context/genressContext';
+import { ViewedMoviesProvider } from './context/viewedMovieContext';
 function App() {
   return (
     <WatchLaterProvider>
+      <ViewedMoviesProvider>
       <GenreProvider>
         <BrowserRouter>
           <Navbar />
@@ -22,6 +24,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </GenreProvider>
+      </ViewedMoviesProvider>
     </WatchLaterProvider>
   );
 }

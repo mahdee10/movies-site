@@ -9,7 +9,7 @@ export default function SimilarMovies({ id }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${apiKey}`;
+        const url = `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${apiKey}`;
         const options = {
           method: 'GET',
           headers: {
@@ -19,6 +19,7 @@ export default function SimilarMovies({ id }) {
 
         const response = await fetch(url, options);
         const data = await response.json();
+     
 
         setMovies(data.results);
       } catch (error) {
