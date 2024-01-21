@@ -1,23 +1,17 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useNavigate } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 export default function Cast({ movie }) {
+    const navigate=useNavigate();
+    function navigation(id){
+        navigate(`/actor/${id}`)
+    }
     return (
-        // <div className="sm:pt-32 pt-10 sm:px-20 px-2 flex flex-col">
-        //     <h2 className="text-white title w-fit sm:text-4xl text-3xl font-bold sm:text-start text-center sm:self-auto self-center ">Cast</h2>
-        //     <div className="flex pt-5 justify-between flex-wrap">
-        //         {
-        //             movie.credits.cast.map((actor)=>(
-        //                 actor.known_for_department==="Acting" && actor.profile_path ? 
-        //                 <img key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3 w-[49%] h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img> 
-        //                 : null
-        //             ))
-        //         }
-        //     </div>
-        // </div>
+
         <div className='sm:pt-32 pt-10 sm:px-20 px-2 '>
             <div className='flex justify-center pb-4'>
                 <h2 className="text-white title w-fit sm:text-4xl text-3xl font-bold sm:text-start text-center sm:self-auto self-center ">Cast</h2>
@@ -51,7 +45,7 @@ export default function Cast({ movie }) {
                             key={actor.id}>
                             {
                                 actor.known_for_department === "Acting" && actor.profile_path ?
-                                    <img key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
+                                    <img onClick={()=>{navigation(actor.id)}} key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
                                     : null
                             }
                         </SwiperSlide>
