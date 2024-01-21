@@ -44,8 +44,10 @@ export default function Movie() {
         }
     }, [movie]);
 
+    
+
     const updateMetaTags = (movie) => {
-        const ogImageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const ogImageUrl = `https://image.tmdb.org/t/p/w92${movie.poster_path}`;
         const ogTitle = movie.title;
         const ogDescription = movie.overview;
         const ogUrl = window.location.href;
