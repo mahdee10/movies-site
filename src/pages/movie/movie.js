@@ -49,24 +49,29 @@ export default function Movie() {
         const ogTitle = movie.title;
         const ogDescription = movie.overview;
         const ogUrl = window.location.href;
-
+    
         document.title = ogTitle;
-
-        const metaTags = document.head.querySelectorAll('meta[property^="og:"]');
-        metaTags.forEach((tag) => tag.remove());
-
+    
+        // Remove existing Open Graph meta tags
+        const existingOGMetaTags = document.head.querySelectorAll('meta[property^="og:"]');
+        existingOGMetaTags.forEach((tag) => tag.remove());
+    
+        // Function to add meta tag
         const metaTag = (property, content) => {
             const meta = document.createElement('meta');
             meta.setAttribute('property', property);
             meta.content = content;
             document.head.appendChild(meta);
         };
-
+    
+        // Add new Open Graph meta tags
         metaTag('og:title', ogTitle);
         metaTag('og:description', ogDescription);
         metaTag('og:image', ogImageUrl);
         metaTag('og:url', ogUrl);
     };
+
+
 
     return (
         <div className="pb-10">
