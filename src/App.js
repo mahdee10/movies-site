@@ -15,7 +15,7 @@ function App() {
     <WatchLaterProvider>
       <ViewedMoviesProvider>
       <GenreProvider>
-        <BrowserRouter basename="/home">
+        <BrowserRouter basename="/">
           <Navbar />
           <Routes>
             <Route path="/" exact element={<Home></Home>} />
