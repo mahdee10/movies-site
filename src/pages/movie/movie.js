@@ -38,6 +38,41 @@ export default function Movie() {
         fetchData();
     }, [id, apiKey]);
 
+    useEffect(() => {
+        // Update meta tags for sharing when movie data changes
+        if (movie) {
+            updateMetaTags(movie);
+        }
+    }, [movie]);
+
+
+
+    const updateMetaTags = (movie) => {
+        const ogImageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+        const ogTitle = movie.title;
+        const ogDescription = movie.overview;
+        const ogUrl = window.location.href;
+
+        document.title = ogTitle;
+
+        // Remove existing Open Graph meta tags
+        const existingOGMetaTags = document.head.querySelectorAll('meta[property^="og:"]');
+        existingOGMetaTags.forEach((tag) => tag.remove());
+
+        // Function to add meta tag
+        const metaTag = (property, content) => {
+            const meta = document.createElement('meta');
+            meta.setAttribute('property', property);
+            meta.content = content;
+            document.head.appendChild(meta);
+        };
+
+        // Add new Open Graph meta tags
+        metaTag('og:title', ogTitle);
+        metaTag('og:description', ogDescription);
+        metaTag('og:image', ogImageUrl);
+        metaTag('og:url', ogUrl);
+    };
 
 
 
@@ -46,10 +81,8 @@ export default function Movie() {
             {movie ? (
                 <>
                     <Helmet>
-                        
                         <meta property="og:title" content={movie.original_title} />
                         <meta property="og:description" content={movie.overview} />
-   
                     </Helmet>
                     <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
                     <MovieDetails movie={movie}></MovieDetails>
