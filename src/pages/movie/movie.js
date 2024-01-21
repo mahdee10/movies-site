@@ -39,18 +39,20 @@ export default function Movie() {
 
   useEffect(() => {
     // Add Open Graph meta tags dynamically
-    if (movie) {
-      const ogImage = movie.poster_path
-        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-        : s;
+    const setMetaTags = () => {
+      if (movie && movie.title && movie.overview && movie.poster_path) {
+        const ogImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-      document.head.querySelector('meta[property="og:title"]').content =
-        movie.title;
-      document.head.querySelector('meta[property="og:description"]').content =
-        movie.overview;
-      document.head.querySelector('meta[property="og:image"]').content =
-        ogImage;
-    }
+        document.head.querySelector('meta[property="og:title"]').content =
+          movie.title;
+        document.head.querySelector('meta[property="og:description"]').content =
+          movie.overview;
+        document.head.querySelector('meta[property="og:image"]').content =
+          ogImage;
+      }
+    };
+
+    setMetaTags();
   }, [movie]);
 
   return (
