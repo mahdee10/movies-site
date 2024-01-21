@@ -80,10 +80,6 @@ export default function Movie() {
         <div className="pb-10">
             {movie ? (
                 <>
-                    <Helmet>
-                        <meta property="og:title" content="Cinemax" />
-                        <meta property="og:description" content="Description of your website or app." />
-                    </Helmet>
                     <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
                     <MovieDetails movie={movie}></MovieDetails>
                     <Trailer movie={movie}></Trailer>
