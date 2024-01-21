@@ -5,7 +5,7 @@ import MovieDetails from "../../components/movie/movieDetails";
 import Trailer from "../../components/movie/movieTrailer";
 import Cast from "../../components/movie/cast";
 import SimilarMovies from "../../components/movie/similarMovies";
-
+import s from "../../imgs/ser.png"
 export default function Movie() {
   const [movie, setMovie] = useState();
   const { id } = useParams();
@@ -42,7 +42,7 @@ export default function Movie() {
     if (movie) {
       const ogImage = movie.poster_path
         ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-        : 'default-image-url.jpg'; // Replace with a default image URL
+        : s;
 
       document.head.querySelector('meta[property="og:title"]').content =
         movie.title;
