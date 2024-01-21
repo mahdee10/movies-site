@@ -43,17 +43,40 @@ export default function Movie() {
       if (movie && movie.title && movie.overview && movie.poster_path) {
         const ogImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-        document.head.querySelector('meta[property="og:title"]').content =
-          movie.title;
-        document.head.querySelector('meta[property="og:description"]').content =
-          movie.overview;
-        document.head.querySelector('meta[property="og:image"]').content =
-          ogImage;
+        // Create or select meta elements
+        let titleMeta = document.head.querySelector('meta[property="og:title"]');
+        let descriptionMeta = document.head.querySelector('meta[property="og:description"]');
+        let imageMeta = document.head.querySelector('meta[property="og:image"]');
+
+        // Create meta elements if not present
+        if (!titleMeta) {
+          titleMeta = document.createElement('meta');
+          titleMeta.setAttribute('property', 'og:title');
+          document.head.appendChild(titleMeta);
+        }
+
+        if (!descriptionMeta) {
+          descriptionMeta = document.createElement('meta');
+          descriptionMeta.setAttribute('property', 'og:description');
+          document.head.appendChild(descriptionMeta);
+        }
+
+        if (!imageMeta) {
+          imageMeta = document.createElement('meta');
+          imageMeta.setAttribute('property', 'og:image');
+          document.head.appendChild(imageMeta);
+        }
+
+        // Set content
+        titleMeta.content = movie.title;
+        descriptionMeta.content = movie.overview;
+        imageMeta.content = ogImage;
       }
     };
 
     setMetaTags();
   }, [movie]);
+
 
   return (
     <div className="pb-10">
