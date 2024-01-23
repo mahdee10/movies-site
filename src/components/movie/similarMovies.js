@@ -19,7 +19,7 @@ export default function SimilarMovies({ id }) {
 
         const response = await fetch(url, options);
         const data = await response.json();
-     
+
 
         setMovies(data.results);
       } catch (error) {
@@ -35,17 +35,17 @@ export default function SimilarMovies({ id }) {
     if (container) {
       const containerRect = container.getBoundingClientRect();
       const mousePositionX = e.clientX - containerRect.left;
-  
-      const triggerThreshold = 0.2; 
-  
+
+      const triggerThreshold = 0.2;
+
       let direction = '';
-  
+
       if (mousePositionX > containerRect.width * (1 - triggerThreshold)) {
         direction = 'right';
       } else if (mousePositionX < containerRect.width * triggerThreshold) {
         direction = 'left';
       }
-  
+
       if (direction) {
         setIntervalId(setInterval(() => scrollMovies(direction), 50));
       }
@@ -71,38 +71,43 @@ export default function SimilarMovies({ id }) {
         <h2 className="text-white text-3xl title w-fit">Similar Movies</h2>
       </div>
       <div className="relative">
-      <div
-        id="movieListContainer"
-        className="flex mt-5 "
-        style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}
-        onMouseEnter={handleMouseLeave}
-        onMouseLeave={handleMouseLeave}
-      >
-        {movies && movies.length && movie.poster_path > 0 ? (
-          movies.map((movie, index) => (
-            <div>
-            <Poster
-              movie={movie}
-              key={index}
-              classContent={"w-40 h-60 shrink-0 mr-3"}
-              source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            ></Poster>
-            </div>
-          ))
-        ) : (
-          <p>loading...</p>
-        )}
-      </div>
-      <div 
-      onMouseEnter={handleMouseEnter} 
-      onMouseLeave={handleMouseLeave} 
-      className="sm:block hidden top-0 absolute left-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
-      </div>
- 
-        <div 
-        onMouseEnter={handleMouseEnter} 
-        onMouseLeave={handleMouseLeave} 
-        className="sm:block hidden top-0 absolute right-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
+        <div
+          id="movieListContainer"
+          className="flex mt-5 "
+          style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}
+          onMouseEnter={handleMouseLeave}
+          onMouseLeave={handleMouseLeave}
+        >
+          {movies && movies.length > 0 ? (
+            movies.map((movie, index) => (
+              
+                movie.poster_path ? (
+                  <div>
+                    <Poster
+                      movie={movie}
+                      key={index}
+                      classContent={"w-40 h-60 shrink-0 mr-3"}
+                      source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    ></Poster>
+                  </div>
+                )
+                  : null
+              
+            ))
+          ) : (
+            <p>loading...</p>
+          )}
+        </div>
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="sm:block hidden top-0 absolute left-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
+        </div>
+
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="sm:block hidden top-0 absolute right-0 w-[10%] cursor-pointer h-full bg-voilet opacity-20 hover:opacity-70 z-10">
         </div>
       </div>
     </div>
