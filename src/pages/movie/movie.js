@@ -5,7 +5,6 @@ import MovieDetails from "../../components/movie/movieDetails";
 import Trailer from "../../components/movie/movieTrailer";
 import Cast from "../../components/movie/cast";
 import SimilarMovies from "../../components/movie/similarMovies";
-import { Helmet } from "react-helmet";
 
 export default function Movie() {
     const [movie, setMovie] = useState();

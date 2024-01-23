@@ -78,7 +78,7 @@ export default function SimilarMovies({ id }) {
         onMouseEnter={handleMouseLeave}
         onMouseLeave={handleMouseLeave}
       >
-        {movies && movies.length > 0 ? (
+        {movies && movies.length && movie.poster_path > 0 ? (
           movies.map((movie, index) => (
             <div>
             <Poster
