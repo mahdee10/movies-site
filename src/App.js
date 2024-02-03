@@ -10,22 +10,27 @@ import Genre from './pages/genre/genre';
 import { GenreProvider } from './context/genressContext';
 import { ViewedMoviesProvider } from './context/viewedMovieContext';
 import Actor from './pages/actor/actor';
+import MyActors from './pages/myActors';
+import { MyActorsProvider } from './context/myActorsContext';
 function App() {
   return (
     <WatchLaterProvider>
       <ViewedMoviesProvider>
+        <MyActorsProvider>
       <GenreProvider>
         <BrowserRouter>
           <Navbar />
           <Routes>
             <Route path="/" exact element={<Home></Home>} />
             <Route path="/watchList" element={<WatchList />} />
+            <Route path="/myactors" element={<MyActors />} />
             <Route path="/movie/:id" element={<Movie />} />
             <Route path="/genre/:id" element={<Genre />} />
             <Route path="/actor/:id" element={<Actor />} />
           </Routes>
         </BrowserRouter>
       </GenreProvider>
+      </MyActorsProvider>
       </ViewedMoviesProvider>
     </WatchLaterProvider>
   );

@@ -1,15 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import ActorPoster from '../shared/actorPoster';
 export default function Cast({ movie }) {
-    const navigate=useNavigate();
-    function navigation(id){
-        navigate(`/actor/${id}`)
-    }
+    // const navigate=useNavigate();
+    // function navigation(id){
+    //     navigate(`/actor/${id}`)
+    // }
     return (
 
         <div className='sm:pt-32 pt-10 sm:px-20 px-2 '>
@@ -45,7 +46,8 @@ export default function Cast({ movie }) {
                             key={actor.id}>
                             {
                                 actor.known_for_department === "Acting" && actor.profile_path ?
-                                    <img onClick={()=>{navigation(actor.id)}} key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
+                                    // <img onClick={()=>{navigation(actor.id)}} key={actor.id} alt="actor" className="sm:w-[210px] sm:h-[250px] mt-3  h-[200px]" src={`https://image.tmdb.org/t/p/original/${actor.profile_path}`}></img>
+                                    <ActorPoster actor={actor} source={`https://image.tmdb.org/t/p/original/${actor.profile_path}`} classContent={"sm:w-[210px] sm:h-[250px] mt-3  h-[200px]"}></ActorPoster>
                                     : null
                             }
                         </SwiperSlide>

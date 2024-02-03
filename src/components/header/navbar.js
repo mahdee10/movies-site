@@ -102,9 +102,8 @@ export default function Navbar() {
                     <div className="sm:static absolute w-full  z-50 nav flex  flex-col md:flex-row  md:mt-0 md:border-0">
                         <Link onClick={closeMenu} to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'active' : ''}`}>Home</Link>
                         <Link onClick={closeMenu} to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'active' : ''}`}>New</Link>
-                        <Link onClick={closeMenu} to="/clients" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>Tv Shows</Link>
+                        <Link onClick={closeMenu} to="/myactors" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/contact' ? 'active' : ''}`}>My Actors</Link>
                         <Link onClick={closeMenu} to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Watchlist</Link>
-                        <Link onClick={closeMenu} to="/team" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5  md:px-3 py-3.5 ${pathname === '/contact' ? 'active' : ''}`}>Genres</Link>
                     </div>
                 </div>
 
