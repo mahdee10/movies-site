@@ -170,3 +170,6 @@ input:focus {
   transition: background-color 1s;
 }
 
+input, textarea, select {
+  text-size-adjust: 100%;
+}
