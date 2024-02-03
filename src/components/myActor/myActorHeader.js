@@ -40,7 +40,7 @@ export default function MyActorsHeader() {
 
                 <div className='flex pl-2 sm:w-1/2 w-full cursor-pointer bg-transparent border-2 rounded-2xl border-white sm:rounded-lgg rounded-md sm:text-base text-xxxs items-center'>
                     <img className='mr-1  sm:w-fit sm:h-fit w-5 h-5' src={s} alt="Search Icon"></img>
-                    <input onChange={(e) => { setSearch(e.target.value) }} className="bg-transparent cursor-pointer text-white w-full sm:pl-1  sm:py-2 py-2 rounded-md sm:text-base text-sm  " type="text" placeholder="You can search here for actors"></input>
+                    <input onFocus={(e) => e.preventDefault()} onChange={(e) => { setSearch(e.target.value) }} className="bg-transparent cursor-pointer text-white w-full sm:pl-1  sm:py-2 py-2 rounded-md sm:text-base text-sm  " type="text" placeholder="You can search here for actors"></input>
                 </div>
             </div>
             {
