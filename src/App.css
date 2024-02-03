@@ -173,3 +173,6 @@ input:focus {
 input, textarea, select {
   text-size-adjust: 100%;
 }
+img {
+  user-select: none;
+}
