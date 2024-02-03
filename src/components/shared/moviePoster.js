@@ -3,11 +3,10 @@ import { useWatchlaterContext } from "../../context/watchLaterContext"
 import watchList from "../../imgs/watch.png"
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useViewedMovies } from "../../context/viewedMovieContext";
 gsap.registerPlugin(ScrollTrigger);
 export default function Poster({ classContent, source,movie,closeModal,withAnimation }) {
-    const [key,setKey]=useState(0);
     const { removeItemWatchLater,addItemToWatchLater,isInWatchList}=useWatchlaterContext();
     const {addViewed}=useViewedMovies()
     const navigate=useNavigate()
@@ -36,9 +35,9 @@ export default function Poster({ classContent, source,movie,closeModal,withAnima
     }
       }, [withAnimation,movie]);
     return (
-        <div key={key} ref={movieRef} className={`${classContent} relative`}>
+        <div ref={movieRef} className={`${classContent} relative`}>
             <img  onClick={()=>{navigation(movie); addViewed(movie);if(closeModal){closeModal()}}} className="w-full h-full cursor-pointer" alt="movie" loading="lazy" src={source}></img>
-            <img onClick={()=>{isInWatchList(movie) ? removeItemWatchLater(movie):addItemToWatchLater(movie); setKey((prev)=>(prev+1))}} alt="watch " src={watchList} className={`absolute z-10 w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInWatchList(movie)? "inWatchList" : "notInwatchlist"}`}></img>
+            <img onClick={()=>{isInWatchList(movie) ? removeItemWatchLater(movie):addItemToWatchLater(movie)}} alt="watch " src={watchList} className={`absolute z-10 w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInWatchList(movie)? "inWatchList" : "notInwatchlist"}`}></img>
         </div>
     )
 }
