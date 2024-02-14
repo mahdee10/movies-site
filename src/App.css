@@ -179,3 +179,18 @@ input, textarea, select {
 img {
   user-select: none;
 }
+.active{
+ position: relative; 
+}
+
+.active::after{
+  position: absolute;
+  content: "";
+  width: 60%;
+  padding: 2px;
+  background-color: #b9004e;
+  height: 4px;
+  bottom: -8px;
+  left: 20%; 
+  /* right: 30%;  */
+}

@@ -37,7 +37,7 @@ export default function Poster({ classContent, source,movie,closeModal,withAnima
     return (
         <div ref={movieRef} className={`${classContent} relative`}>
             <img  onClick={()=>{navigation(movie); addViewed(movie);if(closeModal){closeModal()}}} className="w-full h-full cursor-pointer" alt="movie" loading="lazy" src={source}></img>
-            <img onClick={()=>{isInWatchList(movie) ? removeItemWatchLater(movie):addItemToWatchLater(movie)}} alt="watch " src={watchList} className={`absolute z-10 w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInWatchList(movie)? "inWatchList" : "notInwatchlist"}`}></img>
+            <img onClick={()=>{isInWatchList(movie) ? removeItemWatchLater(movie):addItemToWatchLater(movie)}} alt="watch " src={watchList} className={`absolute z-0 w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInWatchList(movie)? "inWatchList" : "notInwatchlist"}`}></img>
         </div>
     )
 }
