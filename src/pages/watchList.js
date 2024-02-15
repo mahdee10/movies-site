@@ -6,6 +6,6 @@ export default function WatchList() {
     return (
 
         <MoviesCollection title={"Watch List"} movies={watchLater}></MoviesCollection>
-
+ 
     )
 }
