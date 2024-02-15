@@ -9,7 +9,7 @@ export default function MoviesCollection({movies,title}){
                 <div  className="flex flex-wrap sm:justify-center  justify-between w-full">
                     {
                         movies.map((movie,index)=>(
-                            <Poster withAnimation={false} movie={movie} key={index} classContent={"sm:w-40 mt-2 sm:h-60 h-42 w-[48%] shrink-0 sm:mr-3"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
+                            <Poster withAnimation={true} movie={movie} key={index} classContent={"sm:w-40 mt-2 sm:h-60 h-42 w-[48%] shrink-0 sm:mr-3"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
                         ))
                     }
                 </div>
