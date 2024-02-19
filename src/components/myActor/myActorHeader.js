@@ -35,8 +35,8 @@ export default function MyActorsHeader() {
     }, [search]);
     return (
         <>
-            <div className="sm:px-20 flex justify-between sm:items-center sm:flex-row flex-col pt-3 ">
-                <h1 className="sm:text-5xl  text-4xl text-white font-black text-center sm:pt-0 ">My Actors</h1>
+            <div className="sm:px-20 flex justify-between sm:flex-row flex-col pt-3 items-center">
+                <h1 className="sm:text-5xl text-4xl text-white font-black text-center sm:pt-0 sm:py-0 py-10 align-self-center">My Actors</h1>
 
                 <div className='flex pl-2 sm:w-1/2 w-full cursor-pointer bg-transparent border-2 rounded-2xl border-white sm:rounded-lgg rounded-md sm:text-base text-xxxs items-center'>
                     <img className='mr-1  sm:w-fit sm:h-fit w-5 h-5' src={s} alt="Search Icon"></img>

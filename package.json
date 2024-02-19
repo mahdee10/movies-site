@@ -13,6 +13,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "react-visibility-sensor": "^5.1.1",
     "swiper": "^11.0.5",
     "web-vitals": "^2.1.4"
   },

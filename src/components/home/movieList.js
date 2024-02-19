@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import Poster from "../shared/moviePoster";
+import { useNavigate } from "react-router-dom";
 
 export default function MovieList({ urlM, title }) {
     const [movies, setMovies] = useState(null);
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
-
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,7 +34,7 @@ export default function MovieList({ urlM, title }) {
         <div className="px-4 mt-3" >
             <div className="flex justify-between items-center">
                 <h2 className="text-white text-3xl title">{title}</h2>
-                <p className="text-white">View all</p>
+                <p onClick={()=>{navigate('/movies', { state: { urlM: urlM+apiKey,title: title } });}} className="text-white">View all</p>
             </div>
             <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}>
                 {movies && movies.length > 0 ? (

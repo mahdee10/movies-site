@@ -34,8 +34,8 @@ export default function Cast({ movie }) {
                         spaceBetween: 20,
                     },
                     '@1.00': {
-                        slidesPerView: 5.2,
-                        // spaceBetween: 1,
+                        slidesPerView: 5.1,
+                        spaceBetween: 1,
                     },
                 }}
             >

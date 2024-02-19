@@ -1,11 +1,13 @@
 import Poster from "./moviePoster";
 
 export default function MoviesCollection({movies,title}){
+    console.log(title)
 
     return(
         movies && movies.length>0? (
             
             <div className="flex flex-col items-center w-full mt-10  w-full sm:p-0 p-3">
+                {title.length? <h2 className="text-white sm-5xl text-4xl">{title}</h2>:"null"}
                 <div  className="flex flex-wrap sm:justify-center  justify-between w-full">
                     {
                         movies.map((movie,index)=>(

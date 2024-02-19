@@ -105,7 +105,7 @@ export default function Navbar() {
                 <div className={`w-full md:w-auto ${isMenuOpen ? "block" : "hidden"}`} id="navbar-default">
                     <div className="sm:static absolute w-full  z-50 nav flex  flex-col md:flex-row  md:mt-0 md:border-0">
                         <Link onClick={closeMenu} to="/" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/' ? 'sm:text-[#b9004e] sm:bg-transparent bg-[#b9004e] ' : ''}`}>Home</Link>
-                        <Link onClick={closeMenu} to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'sm:text-[#b9004e] sm:bg-transparent bg-[#b9004e]' : ''}`}>New</Link>
+                        {/* <Link onClick={closeMenu} to="/work" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/job' ? 'sm:text-[#b9004e] sm:bg-transparent bg-[#b9004e]' : ''}`}>New</Link> */}
                         <Link onClick={closeMenu} to="/myactors" className={`block sm:bg-transparent bg-navBg text-center text-lg no-underline text-white sm:py-1 h-full leading-8 px-5 py-3.5  ${pathname === '/myactors' ? 'sm:text-[#b9004e] sm:bg-transparent bg-[#b9004e]' : ''}`}>My Actors</Link>
                         <Link onClick={closeMenu} to="/watchList" className={`block text-center text-lg no-underline sm:bg-transparent bg-navBg text-white sm:py-1 h-full leading-8 l:px-5 md:px-3 py-3.5 ${pathname === '/watchList' ? 'sm:text-[#b9004e] sm:bg-transparent bg-[#b9004e]' : ''}`}>Watchlist</Link>
                     </div>
