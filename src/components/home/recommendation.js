@@ -68,7 +68,7 @@ export default function Recommendation() {
         <div className="px-4 mt-3" >
             <div className="flex justify-between items-center">
                 <h2 className="text-white text-3xl title">Recommendation</h2>
-                <p className="text-white"  onClick={()=>{navigate('/movies', { state: { urlM: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${topGenres[0]},${topGenres[1]}`,title: "Recommendation" } });}}>View all</p>
+                <p className="text-white cursor-pointer"  onClick={()=>{navigate('/movies', { state: { urlM: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&with_genres=${topGenres[0]},${topGenres[1]}`,title: "Recommendation" } });}}>View all</p>
             </div>
             <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}>
                 {recommendedMovies && recommendedMovies.length > 0 ? (
