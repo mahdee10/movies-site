@@ -31,7 +31,7 @@ export default function Movies(){
         fetchData();
     }, [urlM]);
     return(
-        <div className="sm:pt-32 pt-10 sm:px-20 px-2 pb-20">
+        <div className="sm:pt-32 pt-10 sm:px-20 px-2 pb-20 mb-10">
             {
                 movies && movies.length > 0 ?
                     <MoviesCollection title={title} movies={movies}></MoviesCollection>
