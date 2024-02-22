@@ -10,7 +10,7 @@ export default function MovieDetails({ movie }) {
 
     const movieUrl = `https://cinemaxxxx.netlify.app/movie/${movie.id}`;
     const message = `Check out this movie: ${movie.title}`;
-    const imageUrl = movie.previewPhotoUrl;
+    // const imageUrl = movie.previewPhotoUrl;
   
     return (
         <div className="sm:pt-32 pt-10 sm:px-20 px-2">
