@@ -194,3 +194,8 @@ img {
   left: 20%; 
   /* right: 30%;  */
 }
+.modal-overlay,
+.modal-content{
+  overscroll-behavior: contain;
+  overscroll-behavior-block:contain;
+}

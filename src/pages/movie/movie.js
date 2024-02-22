@@ -5,6 +5,7 @@ import MovieDetails from "../../components/movie/movieDetails";
 import Trailer from "../../components/movie/movieTrailer";
 import Cast from "../../components/movie/cast";
 import SimilarMovies from "../../components/movie/similarMovies";
+import { Helmet } from "react-helmet";
 
 export default function Movie() {
     const [movie, setMovie] = useState();
@@ -37,41 +38,41 @@ export default function Movie() {
         fetchData();
     }, [id, apiKey]);
 
-    useEffect(() => {
-        // Update meta tags for sharing when movie data changes
-        if (movie) {
-            updateMetaTags(movie);
-        }
-    }, [movie]);
+    // useEffect(() => {
+    //     // Update meta tags for sharing when movie data changes
+    //     if (movie) {
+    //         // updateMetaTags(movie);
+    //     }
+    // }, [movie]);
 
 
 
-    const updateMetaTags = (movie) => {
-        const ogImageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        const ogTitle = movie.title;
-        const ogDescription = movie.overview;
-        const ogUrl = window.location.href;
+    // const updateMetaTags = (movie) => {
+    //     const ogImageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    //     const ogTitle = movie.title;
+    //     const ogDescription = movie.overview;
+    //     const ogUrl = window.location.href;
 
-        document.title = ogTitle;
+    //     document.title = ogTitle;
 
-        // Remove existing Open Graph meta tags
-        const existingOGMetaTags = document.head.querySelectorAll('meta[property^="og:"]');
-        existingOGMetaTags.forEach((tag) => tag.remove());
+    //     // Remove existing Open Graph meta tags
+    //     const existingOGMetaTags = document.head.querySelectorAll('meta[property^="og:"]');
+    //     existingOGMetaTags.forEach((tag) => tag.remove());
 
-        // Function to add meta tag
-        const metaTag = (property, content) => {
-            const meta = document.createElement('meta');
-            meta.setAttribute('property', property);
-            meta.content = content;
-            document.head.appendChild(meta);
-        };
+    //     // Function to add meta tag
+    //     const metaTag = (property, content) => {
+    //         const meta = document.createElement('meta');
+    //         meta.setAttribute('property', property);
+    //         meta.content = content;
+    //         document.head.appendChild(meta);
+    //     };
 
-        // Add new Open Graph meta tags
-        metaTag('og:title', ogTitle);
-        metaTag('og:description', ogDescription);
-        metaTag('og:image', ogImageUrl);
-        metaTag('og:url', ogUrl);
-    };
+    //     // Add new Open Graph meta tags
+    //     metaTag('og:title', ogTitle);
+    //     metaTag('og:description', ogDescription);
+    //     metaTag('og:image', ogImageUrl);
+    //     metaTag('og:url', ogUrl);
+    // };
 
 
 
@@ -79,11 +80,17 @@ export default function Movie() {
         <div className="pb-10">
             {movie ? (
                 <>
+                <Helmet>
+                <title>{movie.title}</title>
+                <meta property="og:image" content={`https://image.tmdb.org/t/p/w92${movie.poster_path}`}/>
+                <meta name="description" content={movie.overview} />
+                </Helmet>
                     <MovieBP poster={movie.poster_path} background={movie.backdrop_path}></MovieBP>
                     <MovieDetails movie={movie}></MovieDetails>
                     <Trailer movie={movie}></Trailer>
                     <Cast movie={movie}></Cast>
                     <SimilarMovies id={movie.id}></SimilarMovies>
+                   
                 </>
             ) : (
                 null
