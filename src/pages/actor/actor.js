@@ -40,7 +40,7 @@ export default function Actor() {
     return (
         <div className="sm:pt-32  sm:px-20  pb-20">
 
-            {actor && movies? (
+            {actor && movies.cast ? (
                 <>
                     <ActorDescription actor={actor}></ActorDescription>
                     <MoviesCollection  movies={movies.cast}></MoviesCollection>
