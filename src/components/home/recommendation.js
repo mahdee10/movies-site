@@ -13,7 +13,6 @@ export default function Recommendation() {
     useEffect(() => {
         if(viewedMovies.length>0){
         function commonGenres() {
-            console.log(viewedMovies)
             const allGenres = viewedMovies.flatMap((movie) => {
                 return movie.genre_ids;
             })
@@ -31,7 +30,6 @@ export default function Recommendation() {
             return topGenres;
         }
         const topGenres = commonGenres()
-        console.log(topGenres)
         setTopGenres(topGenres);
     }
     }, [viewedMovies])

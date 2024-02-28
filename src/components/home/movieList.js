@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Poster from "../shared/moviePoster";
 import { useNavigate } from "react-router-dom";
 
-export default function MovieList({ urlM, title }) {
+export default function MovieList({ urlM, title,isTv }) {
     const [movies, setMovies] = useState(null);
     const apiKey = '75a499747ddeaacd5a5ca88536c09337';
     const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function MovieList({ urlM, title }) {
                 {movies && movies.length > 0 ? (
                     movies.map((movie,index) => (
                         // <img key={index} alt="movie" loading="lazy" className="w-40 h-60 shrink-0 mr-3" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></img>
-                        <Poster movie={movie} key={index} classContent={"w-40 h-60 shrink-0 mr-3"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
+                        <Poster isTv={isTv} movie={movie} key={index} classContent={"w-40 h-60 shrink-0 mr-3"} source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}></Poster>
                     ))
                 ) : (
                     <p>loading...</p>

@@ -13,6 +13,7 @@ import Actor from './pages/actor/actor';
 import MyActors from './pages/myActors';
 import { MyActorsProvider } from './context/myActorsContext';
 import Movies from './pages/movies';
+import TvShow from './pages/tvShow/tvshow';
 function App() {
   return (
     <WatchLaterProvider>
@@ -26,6 +27,7 @@ function App() {
             <Route path="/watchList" element={<WatchList />} />
             <Route path="/myactors" element={<MyActors />} />
             <Route path="/movie/:id" element={<Movie />} />
+            <Route path="/tvShow/:id" element={<TvShow />} />
             <Route path="/genre/:id" element={<Genre />} />
             <Route path="/actor/:id" element={<Actor />} />
             <Route path="/movies" element={<Movies/>} />

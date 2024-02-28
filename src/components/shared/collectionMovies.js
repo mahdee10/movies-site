@@ -1,7 +1,6 @@
 import Poster from "./moviePoster";
 
 export default function MoviesCollection({movies,title}){
-    console.log(movies)
 
     return(
         movies && movies.length>0? (

@@ -24,7 +24,6 @@ export default function MyActorsHeader() {
 
                 const response = await fetch(url, options);
                 const data = await response.json();
-                console.log(data.results)
                 setActors(data.results);
             } catch (error) {
                 console.error('Error:', error);

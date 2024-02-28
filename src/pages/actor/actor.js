@@ -28,7 +28,7 @@ export default function Actor() {
                 const data2 = await response2.json();
                 setActor(data);
                 setMovies(data2)
-                console.log(data2)
+             
 
             } catch (error) {
                 console.error('Error:', error);

@@ -6,7 +6,7 @@ export default function Movies(){
     const [movies, setMovies] = useState(null);
     const {state} = useLocation();
     const { urlM,title } = state;
-    console.log(urlM)
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -24,7 +24,7 @@ export default function Movies(){
                 setMovies(data.results);
             } catch (error) {
                 console.error('Error:', error);
-                console.log("sc")
+            
             }
         };
 
