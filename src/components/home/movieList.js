@@ -34,7 +34,7 @@ export default function MovieList({ urlM, title,isTv }) {
         <div className="px-4 mt-3" >
             <div className="flex justify-between items-center">
                 <h2 className="text-white text-3xl title">{title}</h2>
-                <p onClick={()=>{navigate('/movies', { state: { urlM: urlM+apiKey,title: title } });}} className="text-white cursor-pointer">View all</p>
+                <p onClick={()=>{navigate('/movies', { state: {isTv: isTv, urlM: urlM+apiKey,title: title, } });}} className="text-white cursor-pointer">View all</p>
             </div>
             <div id="movieListContainer" className="flex mt-5" style={{ position: 'relative', whiteSpace: 'nowrap', overflowX: 'auto' }}>
                 {movies && movies.length > 0 ? (

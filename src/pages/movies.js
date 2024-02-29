@@ -5,7 +5,7 @@ import MoviesCollection from "../components/shared/collectionMovies";
 export default function Movies(){
     const [movies, setMovies] = useState(null);
     const {state} = useLocation();
-    const { urlM,title } = state;
+    const { urlM,title,isTv } = state;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,7 +34,7 @@ export default function Movies(){
         <div className="sm:pt-32 pt-10 sm:px-20 px-2 pb-20 mb-10">
             {
                 movies && movies.length > 0 ?
-                    <MoviesCollection title={title} movies={movies}></MoviesCollection>
+                    <MoviesCollection isTv={isTv} title={title} movies={movies}></MoviesCollection>
                     :
                     null
             }
