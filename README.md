@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+## Movies Website
+Developed a dynamic movies website with features
+like movie and actor search, watch later lists,
+favorite actor saving, personalized
+recommendations, and random movie selection, all
+powered by real-time API data.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed
+https://cinemaxxxx.netlify.app/
 
 ## Available Scripts
 
