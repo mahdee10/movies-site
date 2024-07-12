@@ -35,7 +35,7 @@ export default function ActorPoster({ classContent, source,actor,closeModal,with
     return (
         <div ref={movieRef} className={`${classContent} relative`}>
             <img  onClick={()=>{navigation(actor); if(closeModal){closeModal()}}} className="w-full h-full cursor-pointer" alt="movie" loading="lazy" src={source}></img>
-            <img onClick={()=>{isInMyActors(actor) ? removeItemMyActors(actor):addItemToMyActors(actor)}} alt="watch " src={watchList} className={`absolute z-10 w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInMyActors(actor)? "inWatchList" : "notInwatchlist"}`}></img>
+            <img onClick={()=>{isInMyActors(actor) ? removeItemMyActors(actor):addItemToMyActors(actor)}} alt="watch " src={watchList} className={`absolute  w-12 h-12 p-0 m-0 watchlist cursor-pointer ${isInMyActors(actor)? "inWatchList" : "notInwatchlist"}`}></img>
         </div>
     )
 }
