@@ -19,22 +19,22 @@ function App() {
     <WatchLaterProvider>
       <ViewedMoviesProvider>
         <MyActorsProvider>
-      <GenreProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path="/" exact element={<Home></Home>} />
-            <Route path="/watchList" element={<WatchList />} />
-            <Route path="/myactors" element={<MyActors />} />
-            <Route path="/movie/:id" element={<Movie />} />
-            <Route path="/tvShow/:id" element={<TvShow />} />
-            <Route path="/genre/:id" element={<Genre />} />
-            <Route path="/actor/:id" element={<Actor />} />
-            <Route path="/movies" element={<Movies/>} />
-          </Routes>
-        </BrowserRouter>
-      </GenreProvider>
-      </MyActorsProvider>
+          <GenreProvider>
+            <BrowserRouter>
+              <Navbar />
+              <Routes>
+                <Route path="/" exact element={<Home></Home>} />
+                <Route path="/watchList" element={<WatchList />} />
+                <Route path="/myactors" element={<MyActors />} />
+                <Route path="/movie/:id" element={<Movie />} />
+                <Route path="/tvShow/:id" element={<TvShow />} />
+                <Route path="/genre/:id" element={<Genre />} />
+                <Route path="/actor/:id" element={<Actor />} />
+                <Route path="/movies" element={<Movies />} />
+              </Routes>
+            </BrowserRouter>
+          </GenreProvider>
+        </MyActorsProvider>
       </ViewedMoviesProvider>
     </WatchLaterProvider>
   );
