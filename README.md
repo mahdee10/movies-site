@@ -28,7 +28,6 @@ Cinemax is powered by real-time data from a movie API, dynamically rendering con
 
 ## 📦 Installation
 To run the project locally:
-bash
 - git clone https://github.com/mahdee10/movies-site
 - cd cinemax
 - npm install
